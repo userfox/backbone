@@ -225,7 +225,7 @@
 
     // The default name for the JSON `id` attribute is `"id"`. MongoDB and
     // CouchDB users may want to set this to `"_id"`.
-    idAttribute: 'id',
+    idAttribute: '_id',
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
@@ -260,7 +260,7 @@
     set: function(key, value, options) {
       var attrs, attr, val;
 
-      // Handle both
+      // Handle both `"key", value` and `{key: value}` -style arguments.
       if (_.isObject(key) || key == null) {
         attrs = key;
         options = value;
